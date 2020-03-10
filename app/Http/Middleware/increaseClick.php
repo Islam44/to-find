@@ -24,7 +24,7 @@ class increaseClick
             DB::table('visitors')->whereMonth("created_at", "=", now()->month)->whereYear("created_at", "=", now()->year)
                 ->update(['click' => $value]);
         } else {
-            DB::table('visitor')->insert([
+            DB::table('visitors')->insert([
                 'click' => 0,
                 'viewer' => 0,
                 'created_at' => now()
