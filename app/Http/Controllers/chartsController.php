@@ -85,6 +85,7 @@ class chartsController extends Controller
         $timesArray = array();
         $views = DB::table('visitors')->get(['viewer'])->toArray();
         $clicks = DB::table('visitors')->get(['click'])->toArray();
+        dd([$views,$clicks]);
         $times = DB::table('visitors')
             ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
             ->orderBy("created_at")
