@@ -80,7 +80,6 @@ class chartsController extends Controller
 
     public function viewAndClick()
     {
-        return "islam";
         $viewsArray = array();
         $clicksArray = array();
         $timesArray = array();
