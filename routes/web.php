@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Artisan;
 
 Auth::routes(['verify' => true]);
 Route::get('/', function () {
-    Artisan::call('queue:work', ['--queue' => 'high,default']);
+//    Artisan::call('queue:work', ['--queue' => 'high,default']);
     return view('welcome');
 })->middleware(increaseView::class);
 
