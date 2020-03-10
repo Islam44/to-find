@@ -35,6 +35,7 @@ return [
         ],
 
         'database' => [
+            'connection' =>  'pgsql',
             'driver' => 'database',
             'table' => 'jobs',
             'queue' => 'low',
@@ -80,8 +81,8 @@ return [
     */
 
     'failed' => [
-        'driver' => env('QUEUE_FAILED_DRIVER', 'database'),
-        'database' => env('DB_CONNECTION', 'mysql'),
+        'driver' => 'database',
+        'database' =>'pgsql',
         'table' => 'failed_jobs',
     ],
 
