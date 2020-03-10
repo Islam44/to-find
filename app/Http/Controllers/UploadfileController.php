@@ -29,9 +29,9 @@ class UploadfileController extends Controller
     public function searchbyImageForLost($image)
     {
         $tempUrl = $this->uploadImageToS3("temp/", $image);
-        $job = (new SearchByImage("lookfor", $tempUrl, auth()->user()))->onConnection('database')->onQueue('high');
-        dispatch($job);
-//        SearchByImage::dispatch("lookfor", $tempUrl, auth()->user())->onConnection('database')->onQueue('high');
+//        $job = (new SearchByImage("lookfor", $tempUrl, auth()->user()))->onConnection('database')->onQueue('high');
+//        dispatch($job);
+        SearchByImage::dispatch("lookfor", $tempUrl, auth()->user())->onQueue('high');
         return view("popup");
     }
 

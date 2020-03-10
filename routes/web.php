@@ -13,9 +13,11 @@
 
 use App\Http\Middleware\increaseClick;
 use App\Http\Middleware\increaseView;
+use Illuminate\Support\Facades\Artisan;
 
 Auth::routes(['verify' => true]);
 Route::get('/', function () {
+    Artisan::call('queue:work', ['--queue' => 'high,default']);
     return view('welcome');
 })->middleware(increaseView::class);
 
