@@ -73,6 +73,7 @@ Route::get('locale/{locale}', function ($locale) {
 });
 
 Route::group(['middleware' => ['auth', 'verified', 'is-ban']], function () {
+    Route::get('/twoline', 'chartsController@viewAndClick')->middleware('role:Admin');
     Route::get('/allmessages', 'contactController@indexTable')->middleware('role:Admin');
     Route::get('/contact/delete/{id}', 'contactController@destroy');
     Route::get('/people/search/{type}', 'reportController@create')->middleware(increaseView::class);
@@ -157,7 +158,6 @@ Route::group(['middleware' => ['auth', 'verified', 'is-ban']], function () {
     Route::get('/chartData', 'chartsController@chart')->middleware('role:Admin');
     Route::get('/chartData1', 'chartsController@chart1')->middleware('role:Admin');
     Route::get('/chartData2', 'chartsController@chart2')->middleware('role:Admin');
-    Route::get('/twoline', 'chartsController@viewAndClick')->middleware('role:Admin');
     Route::post('/items', 'itemController@store')->name('items.store')->middleware(increaseClick::class);
     Route::get('/acceptMessage/{decision}/{descriptionValidation}', 'itemController@AcceptMessage')->middleware(increaseClick::class);
     Route::post('/sendEmailItem/{id}', 'itemController@sendEmailVerifyItems')->middleware(increaseClick::class);
