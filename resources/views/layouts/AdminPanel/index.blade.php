@@ -263,7 +263,6 @@
             $.get("/twoline", function (data) {
                 console.log(data);
                 drawTwoLine(data)
-
             });
 
             function getChart(id, value1, value2, x, y) {
