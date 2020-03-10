@@ -60,8 +60,9 @@
                         <div class="social-login">
                             <span class="social-label">{{ __('messages.Or login with') }}</span>
                             <ul class="socials">
-                                <li><a href="{{ url('auth/redirect/facebook') }}"><i
-                                            class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li hidden><a href="{{ url('auth/redirect/facebook') }}"><i
+                                            class="display-flex-center zmdi zmdi-facebook"></i></a>
+                                </li>
                                 <li><a href="{{ url('auth/redirect/google') }}"><i
                                             class="display-flex-center zmdi zmdi-google"></i></a></li>
                             </ul>
