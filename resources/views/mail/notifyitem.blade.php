@@ -9,10 +9,10 @@
         name : {{auth()->user()->name}}  <br>
         email : {{auth()->user()->email}}  <br>
         phone : {{auth()->user()->phone}}  <br>
-        @component('mail::button', ['url' => 'http://localhost:8000/acceptMessage/accept/'.$descriptionValidation->id])
+        @component('mail::button', ['url' => 'http://to-find.herokuapp.com/acceptMessage/accept/'.$descriptionValidation->id])
             Accept
         @endcomponent
-        @component('mail::button', ['url' => 'http://localhost:8000/acceptMessage/reject/'.$descriptionValidation->id])
+        @component('mail::button', ['url' => 'http://to-find.herokuapp.com/acceptMessage/reject/'.$descriptionValidation->id])
             Reject
         @endcomponent
         Thanks,<br>

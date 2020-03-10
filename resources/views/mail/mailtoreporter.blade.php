@@ -8,13 +8,13 @@
     email : {{auth()->user()->email}}
     phone : {{auth()->user()->phone}}
     please make an action after meet him/her
-    @component('mail::button', ['url' => 'http://localhost:8000/people/details/'.$report->id])
+    @component('mail::button', ['url' => 'http://to-find.herokuapp.com/people/details/'.$report->id])
         View Report
     @endcomponent
-    @component('mail::button', ['url' => 'http://localhost:8000/closereport/'.$report->id])
+    @component('mail::button', ['url' => 'http://to-find.herokuapp.com/closereport/'.$report->id])
         Close Report
     @endcomponent
-    @component('mail::button', ['url' => 'http://localhost:8000/stillreport/'.$report->id])
+    @component('mail::button', ['url' => 'http://to-find.herokuapp.com/stillreport/'.$report->id])
         Still Report
     @endcomponent
     Thanks,<br>
