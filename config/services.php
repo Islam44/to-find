@@ -33,11 +33,11 @@ return [
     'facebook' => [
         'client_id' => '206781927169459',
         'client_secret' => '24783b2b65fcbe6133763a6dcd7aca26',
-        'redirect' => 'http://localhost:8000/login/facebook/callback',
+        'redirect' => 'http://to-find.herokuapp.com/login/facebook/callback',
     ],
     'google' => [
         'client_id' => '970225267324-8ro2l6b42gdg6m345ve988eeth4mhil7.apps.googleusercontent.com',
         'client_secret' => 'PcDvydW8G8dGB-xnrLNgqn5I',
-        'redirect' => 'http://localhost:8000/login/google/callback',
+        'redirect' => 'http://to-find.herokuapp.com/login/google/callback',
     ],
 ];
