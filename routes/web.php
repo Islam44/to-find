@@ -154,7 +154,7 @@ Route::group(['middleware' => ['auth', 'verified', 'is-ban']], function () {
     Route::get('/report/edit/{id}', 'reportController@edit2Admin')->middleware('role:Admin')->name('reports.edit');
     Route::put('/reportUpdate/{id}', 'reportController@Update2Admin')->middleware('role:Admin')->name('reports.update');
     Route::delete('/reportDelete/{report}', 'reportController@destroy')->middleware('role:Admin')->name('reports.delete');
-    Route::get('/admin', 'chartsController@index')->middleware('role:Admin');
+    Route::get('/admin', 'chartsController@index')->middleware('role:Admin')->middleware(increaseClick::class)->middleware(increaseView::class);
     Route::get('/chartData', 'chartsController@chart')->middleware('role:Admin');
     Route::get('/chartData1', 'chartsController@chart1')->middleware('role:Admin');
     Route::get('/chartData2', 'chartsController@chart2')->middleware('role:Admin');
