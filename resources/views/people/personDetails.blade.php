@@ -23,9 +23,9 @@
                     <div class="row mt-3 ml-2">
                         <h5>{{ __('messages.Share Report :') }}</h5>
                         <div class="fb-share-button ml-2"
-                             data-href="http://127.0.0.1:8000/people/details/{{$report->id}}" data-layout="button"
+                             data-href="http://to-find.herokuapp.com/people/details/{{$report->id}}" data-layout="button"
                              data-size="large"><a target="_blank"
-                                                  href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fpeople%2Fdetails%2F3&amp;src=sdkpreparse"
+                                                  href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fto-find.herokuapp.com/%2Fpeople%2Fdetails%2F3&amp;src=sdkpreparse"
                                                   class="fb-xfbml-parse-ignore">Share</a></div>
                     </div>
                 </div>

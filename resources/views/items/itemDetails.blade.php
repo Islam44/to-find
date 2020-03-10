@@ -31,7 +31,7 @@
                             <div class="fb-share-button ml-2"
                                  data-href="http://to-find.herokuapp.com/people/details/{{$item->id}}" data-layout="button"
                                  data-size="large"><a target="_blank"
-                                                      href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fto-find.herokuapp.com/%2Fpeople%2Fdetails%2F3&amp;src=sdkpreparse"
+                                                      href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fto-find.herokuapp.com%2FshowReportItem%2F3&amp;src=sdkpreparse"
                                                       class="fb-xfbml-parse-ignore">Share</a></div>
                         </div>
                     </div>

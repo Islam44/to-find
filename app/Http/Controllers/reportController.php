@@ -139,7 +139,7 @@ class reportController extends Controller
             return $this->errorResponse('No face Found Of More than one Face', 404);
         } else {
             $tempUrl = $this->uploadImageToS3("temp/", $request->file('image'));
-            $job = (new SearchByImageForReport(\auth()->user(), $tempUrl, $type, $data))->onConnection('database');
+            $job = (new SearchByImageForReport(\auth()->user(), $tempUrl, $type, $data))->onConnection('database')->onQueue('high');
             dispatch($job);
 //            SearchByImageForReport::dispatch(\auth()->user(), $tempUrl, $type, $data)->onConnection('database')->onQueue('high');
             return view("popup");
