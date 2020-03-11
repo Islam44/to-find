@@ -9,7 +9,7 @@
             <div class="col-md-6 col-sm-10 text-center">
                 <h4>{{ __('messages.Upload Image For Lost Person To Search If There Is Match Or Not') }}</h4>
                 <img id="blah" src="http://placehold.it/300" alt="your image" width="300px" height="300px"/>
-                <form method="post" action="{{url('/uploadfile')}}" enctype="multipart/form-data">
+                <form method="post" action="/uploadfile" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <input type="file" name="select_file" onchange="readURL(this);" class="btn " required/>
