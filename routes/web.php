@@ -16,7 +16,6 @@ use App\Http\Middleware\increaseView;
 use Illuminate\Support\Facades\Artisan;
 
 Auth::routes(['verify' => true]);
-Route::get('/admin', 'chartsController@index')->middleware(increaseClick::class)->middleware(increaseView::class);
 Route::get('/', function () {
 //    Artisan::call('queue:work', ['--queue' => 'high,default']);
     return view('welcome');
@@ -155,7 +154,7 @@ Route::group(['middleware' => ['auth', 'verified', 'is-ban']], function () {
     Route::get('/report/edit/{id}', 'reportController@edit2Admin')->middleware('role:Admin')->name('reports.edit');
     Route::put('/reportUpdate/{id}', 'reportController@Update2Admin')->middleware('role:Admin')->name('reports.update');
     Route::delete('/reportDelete/{report}', 'reportController@destroy')->middleware('role:Admin')->name('reports.delete');
-/////////////////////////sssssssssssssssssfffffffffffffff
+    Route::get('/admin', 'chartsController@index')->middleware('role:Admin')->middleware(increaseClick::class)->middleware(increaseView::class);
     Route::get('/chartData', 'chartsController@chart')->middleware('role:Admin');
     Route::get('/chartData1', 'chartsController@chart1')->middleware('role:Admin');
     Route::get('/chartData2', 'chartsController@chart2')->middleware('role:Admin');

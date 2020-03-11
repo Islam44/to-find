@@ -12,14 +12,6 @@ class chartsController extends Controller
 {
     public function index()
     {
-        $timesArray=array();
-        $times = DB::table("visitors")
-            ->orderBy("created_at")
-            ->get()->toArray();
-        foreach ($times as $time) {
-            array_push($timesArray, \Carbon\Carbon::parse($time->created_at)->format('m/Y'));
-        }
-        return response()->json($timesArray);
         $users = User::all()->count();
         $items = Item::all()->count();
         $reports = Report::all()->count();
@@ -94,9 +86,8 @@ class chartsController extends Controller
         $views = DB::table("visitors")->get(['viewer'])->toArray();
         $clicks = DB::table("visitors")->get(['click'])->toArray();
         $times = DB::table("visitors")
-            ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
             ->orderBy("created_at")
-            ->get();
+            ->get()->toArray();
         foreach ($views as $view) {
             array_push($viewsArray, $view->viewer);
         }
@@ -104,7 +95,7 @@ class chartsController extends Controller
             array_push($clicksArray, $click->click);
         }
         foreach ($times as $time) {
-            array_push($timesArray, $time->time);
+            array_push($timesArray, \Carbon\Carbon::parse($time->created_at)->format('m-Y'));
         }
         return response()->json([
             'views' => $viewsArray,
