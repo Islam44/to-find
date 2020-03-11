@@ -12,10 +12,10 @@ class chartsController extends Controller
 {
     public function index()
     {
-        $times = DB::table("visitors")
-            ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
-            ->orderBy("created_at")
-            ->get();
+        $times = DB::table("visitors")->get();
+//            ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
+//            ->orderBy("created_at")
+//            ->get();
         return response()->json($times);
         $users = User::all()->count();
         $items = Item::all()->count();
