@@ -90,7 +90,6 @@ class chartsController extends Controller
 //            ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
 //            ->orderBy("created_at")
 //            ->get();
-        return dd($times);
         foreach ($views as $view) {
             array_push($viewsArray, $view->viewer);
         }
