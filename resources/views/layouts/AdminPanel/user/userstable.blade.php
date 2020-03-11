@@ -20,6 +20,7 @@
                         <th scope="col">name</th>
                         <th scope="col">email</th>
                         <th scope="col">phone</th>
+                        <th scope="col">admin</th>
                         <th scope="col">ban</th>
                         <th scope="col">action</th>
 
