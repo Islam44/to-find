@@ -16,13 +16,14 @@ return [
     | http://docs.aws.amazon.com/aws-sdk-php/v3/guide/guide/configuration.html
     |
     */
+    'version' => 'latest',
+    'region' => 'us-east-2',
     'credentials' => [
         'key' => 'AKIA5WVDM6FIA5253O7V',
         'secret' => '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',
     ],
-    'region' => 'us-east-2',
-    'version' =>  'latest',
     'ua_append' => [
         'L5MOD/' . AwsServiceProvider::VERSION,
     ],
 ];
+
