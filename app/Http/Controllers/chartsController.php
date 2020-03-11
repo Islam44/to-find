@@ -15,9 +15,9 @@ class chartsController extends Controller
         $timesArray=array();
         $times = DB::table("visitors")
             ->orderBy("created_at")
-            ->get(['created_at'])->toArray();
+            ->get()->toArray();
         foreach ($times as $time) {
-            array_push($timesArray, \Carbon\Carbon::parse($time)->format('m/Y'));
+            array_push($timesArray, \Carbon\Carbon::parse($time->created_at)->format('m/Y'));
         }
         return response()->json($timesArray);
         $users = User::all()->count();
