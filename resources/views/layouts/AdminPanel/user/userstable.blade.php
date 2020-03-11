@@ -41,18 +41,16 @@
                                         <td><a href="/makeadmin/{{$user->id}}" class="btn btn-danger m-1">
                                                 Mak Admin</a></td>
                                     @endif
-                                    @if(auth()->user()->id == $user->id)
-                                        <td></td>
-                                    @else
                                         <td>
+                                            @if(!$user->hasRole('Admin'))
                                             @if($user->isBanned())
                                                 <a href="/userUserRevoke/{{$user->id}}" class="btn btn-danger m-1">
                                                     Unban</a>
                                             @else
                                                 <a href="/userBan/{{$user->id}}" class="btn btn-danger m-1"> BAN</a>
                                             @endif
+                                                @endif
                                         </td>
-                                    @endif
                                     <td>
                                         <a href="/user/{{$user->id}}" class="btn btn-info m-1">show</a>
                                         <a href="/user/edit/{{$user->id}}" class="btn btn-primary m-1">update</a>
