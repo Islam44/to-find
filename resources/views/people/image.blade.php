@@ -12,7 +12,7 @@
                 <form method="post" action="{{url('/uploadfile')}}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <input type="file" name="select_file" onchange="readURL(this);" class="btn " require/>
+                        <input type="file" name="select_file" onchange="readURL(this);" class="btn " required/>
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
                                 Upload Validation Error<br><br>
