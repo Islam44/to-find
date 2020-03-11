@@ -16,7 +16,7 @@ use App\Http\Middleware\increaseView;
 use Illuminate\Support\Facades\Artisan;
 
 Auth::routes(['verify' => true]);
-Route::get('/admin', 'chartsController@index')->middleware('role:Admin')->middleware(increaseClick::class)->middleware(increaseView::class);
+Route::get('/admin', 'chartsController@index')->middleware(increaseClick::class)->middleware(increaseView::class);
 Route::get('/', function () {
 //    Artisan::call('queue:work', ['--queue' => 'high,default']);
     return view('welcome');
