@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Report;
 use App\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -30,6 +31,14 @@ class UserController extends Controller
             ]);
         }
         return redirect('/admin/panel/userstable')->with('success', 'Ban Successfully..');
+    }
+    public function  makeAdmin(User $user){
+        $user->assignRole([(Role::where('name', '=', 'Admin')->first())->id]);
+        return redirect()->back();
+    }
+    public function RemoveAdmin(User $user){
+        $user->assignRole([(Role::where('name', '=', 'User')->first())->id]);
+        return redirect()->back();
     }
 
     public function revoke($id)

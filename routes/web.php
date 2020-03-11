@@ -75,6 +75,8 @@ Route::get('locale/{locale}', function ($locale) {
 
 Route::group(['middleware' => ['auth', 'verified', 'is-ban']], function () {
     Route::post('/uploadfile', 'UploadfileController@upload')->middleware(increaseClick::class);
+    Route::get('/makeadmin/{user}', 'UserController@makeAdmin')->middleware('role:Admin');
+    Route::get('/removeadmin/{user}', 'UserController@RemoveAdmin')->middleware('role:Admin');
     Route::get('/twoline', 'chartsController@viewAndClick')->middleware('role:Admin');
     Route::get('/allmessages', 'contactController@indexTable')->middleware('role:Admin');
     Route::get('/contact/delete/{id}', 'contactController@destroy');

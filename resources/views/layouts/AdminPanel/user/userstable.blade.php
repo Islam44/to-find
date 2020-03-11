@@ -35,7 +35,12 @@
                                         <P>{{$user->email}}</P>
                                     </td>
                                     <td>{{$user->phone}}</td>
-
+                                    @if($user->hasRole('Admin'))
+                                    <td><a href="/makeadmin/{{$user->id}}" class="btn btn-danger m-1">Remove Admin</a></td>
+                                    @else
+                                        <td><a href="/removeadmin/{{$user->id}}" class="btn btn-danger m-1">
+                                                Mak Admin</a></td>
+                                    @endif
                                     @if(auth()->user()->id == $user->id)
                                         <td></td>
                                     @else
