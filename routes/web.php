@@ -16,7 +16,7 @@ use App\Http\Middleware\increaseView;
 use Illuminate\Support\Facades\Artisan;
 
 Auth::routes(['verify' => true]);
-Route::post('/uploadfile', 'UploadfileController@upload')->middleware(increaseClick::class);
+
 Route::get('/', function () {
 //    Artisan::call('queue:work', ['--queue' => 'high,default']);
     return view('welcome');
@@ -74,6 +74,7 @@ Route::get('locale/{locale}', function ($locale) {
 });
 
 Route::group(['middleware' => ['auth', 'verified', 'is-ban']], function () {
+    Route::post('/uploadfile', 'UploadfileController@upload')->middleware(increaseClick::class);
     Route::get('/twoline', 'chartsController@viewAndClick')->middleware('role:Admin');
     Route::get('/allmessages', 'contactController@indexTable')->middleware('role:Admin');
     Route::get('/contact/delete/{id}', 'contactController@destroy');
