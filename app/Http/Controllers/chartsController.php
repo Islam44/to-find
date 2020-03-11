@@ -12,11 +12,14 @@ class chartsController extends Controller
 {
     public function index()
     {
+        $timesArray=array();
         $times = DB::table("visitors")
-            ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
             ->orderBy("created_at")
-            ->get();
-        return response()->json($times);
+            ->get(['created_at'])->toArray();
+        foreach ($times as $time) {
+            array_push($timesArray, \Carbon\Carbon::parse($time)->format('m/Y'));
+        }
+        return response()->json($timesArray);
         $users = User::all()->count();
         $items = Item::all()->count();
         $reports = Report::all()->count();
