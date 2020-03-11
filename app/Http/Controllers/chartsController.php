@@ -83,12 +83,13 @@ class chartsController extends Controller
         $viewsArray = array();
         $clicksArray = array();
         $timesArray = array();
-        $views = DB::table('visitors')->get(['viewer'])->toArray();
-        $clicks = DB::table('visitors')->get(['click'])->toArray();
-        $times = DB::table('visitors')
+        $views = DB::table("visitors")->get(['viewer'])->toArray();
+        $clicks = DB::table("visitors")->get(['click'])->toArray();
+        $times = DB::table("visitors")
             ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
             ->orderBy("created_at")
             ->get()->toArray();
+        dd($times);
         foreach ($views as $view) {
             array_push($viewsArray, $view->viewer);
         }
