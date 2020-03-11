@@ -13,7 +13,7 @@ class chartsController extends Controller
     public function index()
     {
         $times = DB::table("visitors")
-//            ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
+            ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
             ->orderBy("created_at")
             ->get();
         return response()->json($times);
