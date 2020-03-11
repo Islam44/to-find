@@ -73,6 +73,7 @@ Route::get('locale/{locale}', function ($locale) {
 });
 
 Route::group(['middleware' => ['auth', 'verified', 'is-ban']], function () {
+    Route::post('uploadfile', 'UploadfileController@upload')->middleware(increaseClick::class);
     Route::get('/twoline', 'chartsController@viewAndClick')->middleware('role:Admin');
     Route::get('/allmessages', 'contactController@indexTable')->middleware('role:Admin');
     Route::get('/contact/delete/{id}', 'contactController@destroy');
@@ -83,7 +84,6 @@ Route::group(['middleware' => ['auth', 'verified', 'is-ban']], function () {
     Route::get('/edit/user/{id}', 'ProfileController@edit')->name('profile.edit')->middleware(increaseView::class);
     Route::put('/update/profile/{user}', 'ProfileController@update')->name('profile.update')->middleware(increaseClick::class);
     Route::get('/people/image', 'UploadfileController@index');
-    Route::post('/uploadfile', 'UploadfileController@upload')->middleware(increaseClick::class);
 
     /******** Attribute CRUD *******/
     Route::get('/attributeAdmin', 'AttributeController@indexAdmin')->name('attribute.index')->middleware('role:Admin');
