@@ -85,10 +85,11 @@ class chartsController extends Controller
         $timesArray = array();
         $views = DB::table("visitors")->get(['viewer'])->toArray();
         $clicks = DB::table("visitors")->get(['click'])->toArray();
-        $times = DB::table("visitors")
-            ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
-            ->orderBy("created_at")
-            ->get();
+        $times = DB::table("visitors")->orderBy("created_at")
+            ->get(['created_at'])->toArray();
+//            ->select(DB::raw("DATE_FORMAT(created_at, '%m-%Y') as time"))
+//            ->orderBy("created_at")
+//            ->get();
         return dd($times);
         foreach ($views as $view) {
             array_push($viewsArray, $view->viewer);
@@ -97,7 +98,7 @@ class chartsController extends Controller
             array_push($clicksArray, $click->click);
         }
         foreach ($times as $time) {
-            array_push($timesArray, $time->time);
+            array_push($timesArray, $time->time->format('d M'));
         }
         return response()->json([
             'views' => $viewsArray,
