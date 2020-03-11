@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Notifications\SendSummaryToUser;
+use App\Report;
 use Aws\Rekognition\RekognitionClient;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -48,7 +49,7 @@ class SearchByImage implements ShouldQueue
         if ($this->type == "found") {
             $this->renderType = "lost";
         }
-        foreach (DB::table('reports')->where('type', '=', $this->renderType)->where("user_id", '!=', $this->user->id)->get(['image'])->toArray() as $value) {
+        foreach (Report::withoutTrashed()->where('type', '=', $this->renderType)->where("user_id", '!=', $this->user->id)->where("is_found","=","0")->get(['image'])->toArray() as $value) {
             $result = $this->getClient()->compareFaces([
                 'SimilarityThreshold' => 0,
                 'SourceImage' => [
