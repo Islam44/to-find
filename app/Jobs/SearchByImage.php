@@ -67,7 +67,7 @@ class SearchByImage implements ShouldQueue
 
             ]);
             $similarity = (int)$result->get('FaceMatches')[0]['Similarity'];
-            if ($similarity > 80) {
+            if ($similarity > 70) {
                 array_push($nearest, $value->image);
             }
         }
